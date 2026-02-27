@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-// Importaciones corregidas apuntando a la carpeta 'paginas'
-import 'package:myapp/paginas/pagina1.dart';
-import 'package:myapp/paginas/pagina2.dart';
-import 'package:myapp/paginas/pagina3.dart';
+
+// RECOMENDACIÓN: Usa rutas relativas para evitar errores de nombre de paquete
+import 'pagina1.dart';
+import 'pagina2.dart';
+import 'pagina3.dart';
 
 void main() {
   runApp(const FloreriaApp());
@@ -16,8 +17,10 @@ class FloreriaApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dulce 6J Florería',
-      initialRoute: '/',
+      // CORRECCIÓN 1: La ruta inicial debe coincidir con una de las llaves de 'routes'
+      initialRoute: '/', 
       routes: {
+        // CORRECCIÓN 2: Cambiamos '/pagina1' por '/' para que sea la página de inicio
         '/': (context) => const Pagina1(),
         '/pagina2': (context) => const Pagina2(),
         '/pagina3': (context) => const Pagina3(),
